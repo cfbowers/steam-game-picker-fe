@@ -6,10 +6,7 @@ const friends = (props) => (
         {props.friends.map(friend => {
             const selected = (props.selectedFriends.includes(friend.steamID))
             return <Friend
-                img={friend.avatar.medium}
-                steamName={friend.nickname}
-                steamID={friend.steamID}
-                key={friend.steamID}
+                friend={friend}
                 selected={selected}
                 click={props.click}
             />

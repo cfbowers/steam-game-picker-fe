@@ -10,6 +10,7 @@ class App extends Component {
 
     friendClickHandler = (event) => {
         const steamID = event.target.id
+        console.log(steamID)
         const selectedFriends = [...this.state.selectedFriends]
         const friendIndex = selectedFriends.findIndex(friend => friend === steamID)
         if (friendIndex >= 0) {
@@ -21,7 +22,7 @@ class App extends Component {
     }
 
     getFriendsHandler = () => {
-        request.get('http://localhost:3001/api/users/76561198019642313/friends', (err, resp, body) => {
+        request.get('http://localhost:3001/api/users/76561197977157776/friends', (err, resp, body) => {
             this.setState({ friends: JSON.parse(body) })
         })
     }
@@ -30,7 +31,11 @@ class App extends Component {
         const searchValue = event.target.value
         const friends = [...this.state.friends]
         const filteredFriends = friends.filter(friend => {
-            return friend.nickname.toLowerCase().includes(searchValue.toLowerCase())
+            return (
+                (friend.nickname && friend.nickname.toLowerCase().includes(searchValue.toLowerCase()))
+                || 
+                (friend.realName && friend.realName.toLowerCase().includes(searchValue.toLowerCase())) 
+            )
         })
         this.setState({ filteredFriends })
     }
