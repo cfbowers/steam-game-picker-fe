@@ -2,7 +2,7 @@
     width: 20%; 
     margin: 16px auto;
     border: 1px solid #eee; 
-    box-shadow: 0 2px 3px #ccc;
+    box-shadow: 0 5px 6px #ccc;
     padding: 16px;
     text-align: center;
 }
@@ -10,7 +10,5 @@
 .Friend-img { 
     float: left;
     object-fit: contain;
-    /* display: inline-block; */
-    /* margin: 16px auto; */
     border: 1px solid #eee; 
 }
