@@ -10,7 +10,6 @@ class App extends Component {
 
     friendClickHandler = (event) => {
         const steamID = event.target.id
-        console.log(steamID)
         const selectedFriends = [...this.state.selectedFriends]
         const friendIndex = selectedFriends.findIndex(friend => friend === steamID)
         if (friendIndex >= 0) {
