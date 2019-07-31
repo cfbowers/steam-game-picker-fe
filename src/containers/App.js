@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Platforms from '../components/Platforms/Platforms'
 import Friends from '../components/Friends/Friends'
 import FriendsControlls from '../components/Friends/FriendsControls/FriendsControls'
 import request from 'request'
 
 class App extends Component {
-    state = { friends: [], selectedFriends: [] }
+    state = { friends: [], selectedFriends: [], selectedPlatforms: [] }
 
     friendClickHandler = (event) => {
         const steamID = event.target.id
@@ -39,10 +40,27 @@ class App extends Component {
         this.setState({ filteredFriends })
     }
 
+    platformClickHandler = (event) => {
+        const platform = event.target.id
+        const platforms = [...this.state.selectedPlatforms]
+        const platformIndex = platforms.findIndex(p => p === platform)
+        if (platformIndex >= 0) {
+            platforms.splice(platformIndex, 1)
+        } else {
+            platforms.push(platform)
+        }
+        this.setState({ selectedPlatforms: platforms })
+    }
+
   render() {
     return (
         <div className="App">
             <header className="App-header"></header>
+            <Platforms 
+                names={['mac', 'linux', 'windows']} 
+                click={this.platformClickHandler}
+                selectedPlatforms={this.state.selectedPlatforms}
+            /> 
             <FriendsControlls getFriends={this.getFriendsHandler} filterFriends={this.filterFriendsHandler} /> 
             <Friends
                 selectedFriends={this.state.selectedFriends}

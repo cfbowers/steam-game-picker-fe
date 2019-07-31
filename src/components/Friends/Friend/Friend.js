@@ -10,10 +10,10 @@ const friend = (props) => {
 
     return (
     <div className="Friend" id={friend.steamID} onClick={props.click} style={styleMod}>  
-        <img src={friend.avatar.medium}/> 
-        <p>{friend.nickname}</p>
-        <p>{friend.realName}</p>
-        <p>{friend.steamID}</p>
+        <img id="steam-img" src={friend.avatar.medium}/> 
+        <p id="steam-name">{friend.nickname}</p>
+        <p id="real-name">{friend.realName ? friend.realName : " "}</p>
+        <p id="steam-id">{friend.steamID}</p>
     </div>
     )
 }

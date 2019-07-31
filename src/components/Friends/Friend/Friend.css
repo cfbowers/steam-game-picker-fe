@@ -1,14 +1,21 @@
 .Friend {
     width: 35%; 
-    margin: 16px auto;
+    margin:  10px auto;
     border: 1px solid #eee; 
     box-shadow: 0 5px 6px #ccc;
     padding: 16px;
     text-align: center;
 }
 
-.Friend-img { 
+#steam-img { 
     float: left;
     object-fit: contain;
-    border: 1px solid #eee; 
+}
+
+#real-name {
+    font-size: 12px;
+}
+
+#steam-id {
+    font-size: 10px; 
 }
