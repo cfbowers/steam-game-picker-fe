@@ -5,7 +5,7 @@ const platforms = (props) => (
     <div id="platforms">
         {props.names.map(name => { 
             const selected = (props.selectedPlatforms.includes(name))
-            return <Platform name={name} click={props.click} selected={selected}/>
+            return <Platform name={name} key={name} click={props.click} selected={selected}/>
         })}
     </div>
 )

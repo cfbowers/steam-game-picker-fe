@@ -10,7 +10,7 @@ const friend = (props) => {
 
     return (
     <div className="Friend" id={friend.steamID} onClick={props.click} style={styleMod}>  
-        <img id="steam-img" src={friend.avatar.medium}/> 
+        <img id="steam-img" src={friend.avatar.medium} alt=""/> 
         <p id="steam-name">{friend.nickname}</p>
         <p id="real-name">{friend.realName ? friend.realName : " "}</p>
         <p id="steam-id">{friend.steamID}</p>

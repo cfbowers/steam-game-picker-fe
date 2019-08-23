@@ -8,12 +8,11 @@ const platform = (props) => {
 
     return (
         <div 
-            className="Platform" 
-            id={props.name} 
-            onClick={(event) => { props.click(event) }} 
-            style={styleMod}
-        >
-            <p id={props.name}>{props.name}</p>
+        className="Platform" 
+        id={props.name} 
+        onClick={(event) => { props.click(event) }} 
+        style={styleMod}>
+            <p>{props.name}</p>
         </div>
     )
 }

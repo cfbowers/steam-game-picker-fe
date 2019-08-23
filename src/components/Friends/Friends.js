@@ -5,11 +5,7 @@ const friends = (props) => (
     <div id="friends">
         {props.friends.map(friend => {
             const selected = (props.selectedFriends.includes(friend.steamID))
-            return <Friend
-                friend={friend}
-                selected={selected}
-                click={props.click}
-            />
+            return <Friend key={friend.steamID} friend={friend} selected={selected} click={props.click}/>
         })}
     </div>
 )

@@ -52,22 +52,35 @@ class App extends Component {
         this.setState({ selectedPlatforms: platforms })
     }
 
+    submitHandler = (event) => {
+        console.log(this.state.selectedFriends)
+        request.post('http://localhost:3001/api/users', { 
+            'Access-Control-Allow-Origin': '*',
+            json: { steamIDs: this.state.selectedFriends.join(',') } 
+        })
+    }
+
   render() {
     return (
         <div className="App">
             <header className="App-header"></header>
+
             <Platforms 
-                names={['mac', 'linux', 'windows']} 
-                click={this.platformClickHandler}
-                selectedPlatforms={this.state.selectedPlatforms}
-            /> 
-            <FriendsControlls getFriends={this.getFriendsHandler} filterFriends={this.filterFriendsHandler} /> 
+            names={['mac', 'linux', 'windows']} 
+            click={this.platformClickHandler}
+            selectedPlatforms={this.state.selectedPlatforms}/> 
+
+            <FriendsControlls 
+            getFriends={this.getFriendsHandler} 
+            filterFriends={this.filterFriendsHandler} 
+            submit={this.submitHandler} /> 
+
             <Friends
-                selectedFriends={this.state.selectedFriends}
-                friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
-                getFriendsHandler={this.getFriendsHandler}
-                click={this.friendClickHandler}
-            />
+            selectedFriends={this.state.selectedFriends}
+            friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
+            getFriendsHandler={this.getFriendsHandler}
+            click={this.friendClickHandler}/>
+
         </div>
         )
     }
