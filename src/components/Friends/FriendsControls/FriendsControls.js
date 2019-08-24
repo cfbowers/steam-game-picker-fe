@@ -5,7 +5,6 @@ const friendsControls = (props) => (
         <input type="text" placeholder="Steam ID"/>
         <button onClick={props.getFriends}>Get Friends</button> 
         <input placeholder="search for friends" onChange={(event) => props.filterFriends(event)}/>
-        <button onClick={props.submit}>Submit</button>
     </div>
 )
 

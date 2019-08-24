@@ -10,7 +10,7 @@ class App extends Component {
     state = { friends: [], selectedFriends: [], selectedPlatforms: [] }
 
     friendClickHandler = (event) => {
-        const steamID = event.target.id
+        const steamID = event.target.getAttribute('steamid')
         const selectedFriends = [...this.state.selectedFriends]
         const friendIndex = selectedFriends.findIndex(friend => friend === steamID)
         if (friendIndex >= 0) {
@@ -18,6 +18,7 @@ class App extends Component {
         } else if (steamID) {
             selectedFriends.push(steamID)
         }
+        console.log(selectedFriends)
         this.setState({ selectedFriends })
     }
 
@@ -72,8 +73,7 @@ class App extends Component {
 
             <FriendsControlls 
             getFriends={this.getFriendsHandler} 
-            filterFriends={this.filterFriendsHandler} 
-            submit={this.submitHandler} /> 
+            filterFriends={this.filterFriendsHandler} /> 
 
             <Friends
             selectedFriends={this.state.selectedFriends}
@@ -81,6 +81,7 @@ class App extends Component {
             getFriendsHandler={this.getFriendsHandler}
             click={this.friendClickHandler}/>
 
+            <button onClick={this.submitHandler}>Submit</button>
         </div>
         )
     }
