@@ -18,7 +18,6 @@ class App extends Component {
         } else if (steamID) {
             selectedFriends.push(steamID)
         }
-        console.log(selectedFriends)
         this.setState({ selectedFriends })
     }
 
@@ -54,9 +53,7 @@ class App extends Component {
     }
 
     submitHandler = (event) => {
-        console.log(this.state.selectedFriends)
         request.post('http://localhost:3001/api/users', { 
-            'Access-Control-Allow-Origin': '*',
             json: { steamIDs: this.state.selectedFriends.join(',') } 
         })
     }
