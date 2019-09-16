@@ -4,10 +4,15 @@ import './App.css';
 import Platforms from '../components/Platforms/Platforms'
 import Friends from '../components/Friends/Friends'
 import FriendsControlls from '../components/Friends/FriendsControls/FriendsControls'
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import request from 'request'
 
 class App extends Component {
-    state = { friends: [], selectedFriends: [], selectedPlatforms: [] }
+    state = { 
+        friends: [], 
+        selectedFriends: [], 
+        selectedPlatforms: [] 
+    }
 
     friendClickHandler = (event) => {
         const steamID = event.target.getAttribute('steamid')
@@ -19,6 +24,7 @@ class App extends Component {
             selectedFriends.push(steamID)
         }
         this.setState({ selectedFriends })
+        console.log(steamID)
     }
 
     getFriendsHandler = () => {
@@ -62,23 +68,26 @@ class App extends Component {
     return (
         <div className="App">
             <header className="App-header"></header>
+            
+            <FriendsControlls 
+            getFriends={this.getFriendsHandler} 
+            filterFriends={this.filterFriendsHandler} /> 
+
+            <ErrorBoundary>
+                <Friends
+                selectedFriends={this.state.selectedFriends}
+                friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
+                getFriendsHandler={this.getFriendsHandler}
+                click={this.friendClickHandler}/>
+                
+                <button onClick={this.submitHandler}>Submit</button>
+            </ErrorBoundary>
 
             <Platforms 
             names={['mac', 'linux', 'windows']} 
             click={this.platformClickHandler}
             selectedPlatforms={this.state.selectedPlatforms}/> 
-
-            <FriendsControlls 
-            getFriends={this.getFriendsHandler} 
-            filterFriends={this.filterFriendsHandler} /> 
-
-            <Friends
-            selectedFriends={this.state.selectedFriends}
-            friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
-            getFriendsHandler={this.getFriendsHandler}
-            click={this.friendClickHandler}/>
-
-            <button onClick={this.submitHandler}>Submit</button>
+            
         </div>
         )
     }
