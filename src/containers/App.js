@@ -70,23 +70,25 @@ class App extends Component {
             <header className="App-header"></header>
             
             <FriendsControlls 
-            getFriends={this.getFriendsHandler} 
-            filterFriends={this.filterFriendsHandler} /> 
+                getFriends={this.getFriendsHandler} 
+                filterFriends={this.filterFriendsHandler} 
+            /> 
 
             <ErrorBoundary>
                 <Friends
-                selectedFriends={this.state.selectedFriends}
-                friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
-                getFriendsHandler={this.getFriendsHandler}
-                click={this.friendClickHandler}/>
-                
+                    selectedFriends={this.state.selectedFriends}
+                    friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
+                    click={this.friendClickHandler}
+                />
+
                 <button onClick={this.submitHandler}>Submit</button>
             </ErrorBoundary>
 
             <Platforms 
-            names={['mac', 'linux', 'windows']} 
-            click={this.platformClickHandler}
-            selectedPlatforms={this.state.selectedPlatforms}/> 
+                names={['mac', 'linux', 'windows']} 
+                click={this.platformClickHandler}
+                selectedPlatforms={this.state.selectedPlatforms}
+            /> 
             
         </div>
         )

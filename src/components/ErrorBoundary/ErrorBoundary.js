@@ -1,3 +1,4 @@
+// https://reactjs.org/docs/error-boundaries.html
 import React, { Component } from 'react'
 import { thisExpression } from '@babel/types'
 
@@ -6,11 +7,12 @@ class ErrorBoundary extends Component {
 
     componentDidCatch = (error, info) => {
         this.setState({ hasError: true, errorMessage: error })
+        //should log to an error service here later 
     }
 
     render() {
-        if (this.hasError) {
-            return <h1>Something went wrong</h1>
+        if (this.state.hasError) {
+            return <h1>this.state.errorMessage</h1>
         } else {
             return this.props.children
         }
