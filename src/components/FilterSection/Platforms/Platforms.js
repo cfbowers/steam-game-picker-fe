@@ -2,7 +2,7 @@ import React from 'react'
 import Platform from './Platform/Platform'
 
 const platforms = (props) => props.names.map(name => { 
-    const selected = (props.selectedPlatforms.includes(name))
+    const selected = props.selectedPlatforms.includes(name) ? true : false
     return <Platform name={name} key={name} click={props.click} selected={selected}/>
 })
 
