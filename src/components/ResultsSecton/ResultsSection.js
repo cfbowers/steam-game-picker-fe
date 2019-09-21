@@ -14,7 +14,6 @@ class ResultsSection extends Component {
     componentDidMount = () => {
         const steamIDs = this.props.selectedFriends
         const platforms = this.props.selectedPlatforms
-        console.log(steamIDs)
         request.get(`http://localhost:3001/api/games/shared?steamIDs=${steamIDs}`, (err, resp, body) => {
             this.setState({ games: JSON.parse(body) })
         })
