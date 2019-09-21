@@ -14,7 +14,8 @@ class FilterSection extends Component {
     }
 
     componentDidMount = () => {
-        request.get('http://localhost:3001/api/users/76561197977157776/friends', (err, resp, body) => {
+        request.get(`http://localhost:3001/api/users/${this.props.startingSteamID}/friends`, (err, resp, body) => {
+        // request.get('http://localhost:3001/api/users/76561197977157776/friends', (err, resp, body) => {
             this.setState({ friends: JSON.parse(body) })
         })
     }
@@ -42,12 +43,12 @@ class FilterSection extends Component {
                     friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
                     click={this.props.friendClickHandler}
                 />
-{/* 
+
                 <Platforms 
                     names={['mac', 'linux', 'windows']} 
-                    selectedPlatforms={this.state.selectedPlatforms}
-                    click={this.platformClickHandler}
-                />  */}
+                    selectedPlatforms={this.props.selectedPlatforms}
+                    click={this.props.platformClickHandler}
+                />  
 
             </div>
         )

@@ -9,13 +9,21 @@ class ResultsSection extends Component {
 
     constructor(props) {
         super(props)
-        // const games = 
+    }
+
+    componentDidMount = () => {
+        const steamIDs = this.props.selectedFriends
+        const platforms = this.props.selectedPlatforms
+        console.log(steamIDs)
+        request.get(`http://localhost:3001/api/games/shared?steamIDs=${steamIDs}`, (err, resp, body) => {
+            this.setState({ games: JSON.parse(body) })
+        })
     }
 
     render() {
         return (
             <div>
-                {/* <Games games={this.state.games} />  */}
+                <Games games={this.state.games} /> 
             </div>
         )
     }

@@ -1,20 +1,18 @@
 import React from 'react'
+import './Game.css'
 
 const game = (props) => {
-    // const friend = props.friend
-    // const sID = friend.steamID
-    // const className = (props.selected) ? 'friend-clicked' : 'friend'
+    const game = props.game
+    const appID = game.appID
+    const name = game.name
+    const img = game.header_image
 
-    // // Added steamid attribute below to make whole div feel like once piece. When clicking any html item within the div,
-    // // the steamid is added to the selectedFriends array in state. Probably a better way to do this, but will come back.
-    // return (
-    //     <div className={className} id={sID} steamid={sID} onClick={props.click} >  
-    //         <img id="steam-img" steamid={sID} src={friend.avatar.medium} alt=""/> 
-    //         <p id="steam-name" steamid={sID}>{friend.nickname}</p>
-    //         <p id="real-name" steamid={sID}>{friend.realName ? friend.realName : " "}</p>
-    //         <p id="steam-id" steamid={sID}>{friend.steamID}</p>
-    //     </div>
-    // )
+    return (
+        <div className="Game" id={appID} steamid={appID} >  
+            <img id="app-img" src={img} alt=""/> 
+            <p id="app-name">{name}</p>
+        </div>
+    )
 }
 
 export default game

@@ -12,6 +12,12 @@ class App extends Component {
         selectedPlatforms: [] 
     }
 
+    startingSteamID = '76561198019642313'
+
+    componentDidMount = () => {
+        this.setState({ selectedFriends: [this.startingSteamID] })
+    }
+
     stateButtonHandler = () => {
         const showResults = !this.state.showResults
         const newButtonText = (this.state.stateButtonText == 'Get Games') ? 'Back' : 'Get Games'
@@ -40,6 +46,7 @@ class App extends Component {
             selectedFriends.push(steamID)
         }
         this.setState({ selectedFriends })
+        console.log(this.state.selectedFriends)
     }
 
   render() {
@@ -47,10 +54,14 @@ class App extends Component {
         <div className="App">
             <header className="App-header"></header>
             { this.state.showResults 
-                ? <ResultsSecton/>
+                ? <ResultsSecton
+                    selectedFriends={this.state.selectedFriends}
+                    selectedPlatforms={this.state.selectedPlatforms}
+                    />
                 : <FilterSection 
+                    startingSteamID={this.startingSteamID}
                     friendClickHandler={this.friendClickHandler} 
-                    platformClick={this.platformClickHandler}
+                    platformClickHandler={this.platformClickHandler}
                     selectedFriends={this.state.selectedFriends}
                     selectedPlatforms={this.state.selectedPlatforms}
                     />
