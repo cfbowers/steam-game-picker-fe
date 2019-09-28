@@ -1,0 +1,20 @@
+.filter-section {
+    margin: 20px;
+}
+
+.friend-search {
+    width: 100%;
+    /* background-color: beige */
+}
+
+.friends {
+    width: 80%;
+    float: left;
+    /* background-color: red; */
+}
+
+.platforms {
+    width: 20%;
+    float: left;
+    /* background-color: blue; */
+}

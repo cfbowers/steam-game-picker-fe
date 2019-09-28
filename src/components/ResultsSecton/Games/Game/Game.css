@@ -1,8 +1,12 @@
-.Game {
-    width: 35%; 
+.game {
+    width: 90%; 
     margin:  10px auto;
     border: 1px solid #eee; 
     box-shadow: 0 5px 6px #ccc;
-    padding: 16px;
+    padding: 5px;
     text-align: center;
+}
+
+#app-img {
+    width: 100%;
 }

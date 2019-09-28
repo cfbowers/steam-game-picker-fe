@@ -1,29 +1,53 @@
 .friend {
-    width: 35%; 
-    margin:  10px auto;
+    width: 20%; 
+    float: left;
+    margin:  10px;
     border: 1px solid #eee; 
     box-shadow: 0 5px 6px #ccc;
-    padding: 16px;
+    padding: 5px;
     text-align: center;
 }
 
 .friend-clicked {
-    width: 35%; 
-    margin:  10px auto;
+    width: 20%; 
+    float: left;
+    margin:  10px;
     border: 1px solid #eee; 
+    box-shadow: 0 5px 6px #ccc;
+    padding: 5px;
+    text-align: center;
+
     box-shadow: 0px 4px 5px grey inset; 
     background: rgb(250, 250, 250);
-    padding: 16px;
-    text-align: center;
 }
 
-#steam-img { 
+.steam-img { 
+    /* background-color: aqua; */
     float: left;
     object-fit: contain;
+    width: 30%;
+    height: 100%;
+}
+
+.steam-data {
+    /* background-color: aquamarine; */
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+#steam-img {
+    width: 100%;
+}
+
+#steam-name {
+    font-size: 1.25vw;
+    margin-bottom: 1px
 }
 
 #real-name {
-    font-size: 12px;
+    font-size: 1vw;
+    margin: 0;
 }
 
 #steam-id {

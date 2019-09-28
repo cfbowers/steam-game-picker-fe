@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Platforms from './Platforms/Platforms'
 import Friends from './Friends/Friends'
 import request from 'request'
+import './FilterSection.css'
 
 class FilterSection extends Component {
     state = {
@@ -35,20 +36,28 @@ class FilterSection extends Component {
 
     render() {
         return (
-            <div>
-                <input placeholder="search for friends" onChange={this.filterFriendsHandler}/>
+            <div className="filter-section">
 
-                <Friends
-                    selectedFriends={this.props.selectedFriends}
-                    friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
-                    click={this.props.friendClickHandler}
-                />
+                <div className ="friend-search">
+                    <input placeholder="search for friends" onChange={this.filterFriendsHandler}/>
+                </div>
 
-                <Platforms 
-                    names={['mac', 'linux', 'windows']} 
-                    selectedPlatforms={this.props.selectedPlatforms}
-                    click={this.props.platformClickHandler}
-                />  
+                <div className="friends">
+
+                    <Friends
+                        selectedFriends={this.props.selectedFriends}
+                        friends={this.state.filteredFriends ? this.state.filteredFriends : this.state.friends}
+                        click={this.props.friendClickHandler}
+                    />
+                </div>
+
+                <div className="platforms">
+                    <Platforms 
+                        names={['mac', 'linux', 'windows']} 
+                        selectedPlatforms={this.props.selectedPlatforms}
+                        click={this.props.platformClickHandler}
+                    />  
+                </div>
 
             </div>
         )

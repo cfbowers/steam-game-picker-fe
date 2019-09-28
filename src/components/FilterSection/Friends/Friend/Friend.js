@@ -11,11 +11,16 @@ const friend = (props) => {
     // the steamid is added to the selectedFriends array in state. Probably a better way to do this, but will come back.
     return (
         <div className={className} id={sID} steamid={sID} onClick={props.click} >  
-            <img id="steam-img" steamid={sID} src={friend.avatar.medium} alt=""/> 
-            <p id="steam-name" steamid={sID}>{friend.nickname}</p>
-            <p id="real-name" steamid={sID}>{friend.realName ? friend.realName : " "}</p>
-            <p id="steam-id" steamid={sID}>{friend.steamID}</p>
-            <p id="visibility-description" steamid={sID}>{friend.visibilityDescription}</p>
+            <div className="steam-img" steamid={sID}>
+                <img id="steam-img" steamid={sID} src={friend.avatar.medium} alt=""/> 
+            </div>
+            
+            <div className="steam-data" steamID={sID}>
+                <p id="steam-name" steamid={sID}>{friend.nickname}</p>
+                <p id="real-name" steamid={sID}>{friend.realName ? `(${friend.realName})` : " "}</p>
+                {/* <p id="steam-id" steamid={sID}>{friend.steamID}</p>
+                <p id="visibility-description" steamid={sID}>{friend.visibilityDescription}</p>  */}
+            </div>
         </div>
     )
 }

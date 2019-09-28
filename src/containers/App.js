@@ -46,7 +46,6 @@ class App extends Component {
             selectedFriends.push(steamID)
         }
         this.setState({ selectedFriends })
-        console.log(this.state.selectedFriends)
     }
 
   render() {

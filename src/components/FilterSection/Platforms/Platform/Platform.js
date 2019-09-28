@@ -3,7 +3,7 @@ import './Platform.css'
 
 const platform = (props) => (
     <div className={(props.selected) ? 'platform-selected' : 'platform'} id={props.name} onClick={props.click} >
-        <p>{props.name}</p>
+        <p id={props.name}>{props.name}</p>
     </div>
 )
 
